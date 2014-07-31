@@ -10,11 +10,12 @@ apply plugin: 'idea'
 
 buildscript {
   repositories {
-    mavenCentral()
-    maven {
-      url "http://download.java.net/maven/2"
-    }
-    maven { url 'http://repo.spring.io/plugins-release' }
+//    mavenCentral()
+//    maven {
+//      url "http://download.java.net/maven/2"
+//    }
+//    maven { url 'http://repo.spring.io/plugins-release' }
+      maven { url "http://localhost:8081/artifactory/remote-repos" }
   }
 
   dependencies {
@@ -24,8 +25,9 @@ buildscript {
 }
 
 repositories {
-  mavenCentral()
-  maven { url 'http://repo.spring.io/milestone/'}
+//  mavenCentral()
+//  maven { url 'http://repo.spring.io/milestone/'}
+    maven { url "http://localhost:8081/artifactory/remote-repos" }
 }
 
 dependencies {
@@ -67,3 +69,4 @@ task wrapper(type: Wrapper) {
 }
 
 tomcatRunWar.contextPath = ''
+tomcatRunWar.stopPort = 8181
